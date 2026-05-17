@@ -28,7 +28,7 @@
         </div>
 
         <div class="archive-list">
-            {{#get "posts" limit="all" order="published_at desc" include="tags,authors"}}
+            {{#get "posts" limit="100" order="published_at desc" include="tags,authors"}}
             {{#foreach posts}}
             <a class="archive-row" href="{{url}}" data-topic="{{primary_tag.slug}}">
                 <span class="a-num">#{{@index}}</span>
