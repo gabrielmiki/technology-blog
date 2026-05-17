@@ -4,7 +4,7 @@
 
 You are converting an existing static frontend (HTML/CSS/JS or React) into a Ghost CMS-compatible Handlebars theme for the **Inference bilingual blog**. This completes Linear milestone **M3 — Custom Bilingual Theme** in the *Inference Bilingual Blog Pipeline* project (tickets TEM-66 → TEM-69).
 
-You are an autonomous coding agent. Read everything in `## Inputs` before writing any file. Produce a plan, get my confirmation, then execute the four tickets in order with a pause between each one.
+You are an autonomous coding agent. Read everything in this folder before writing any file. Produce a plan, get my confirmation, then execute the four tickets in order with a pause between each one.
 
 ---
 
