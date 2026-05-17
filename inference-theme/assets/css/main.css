@@ -1,0 +1,11 @@
+/* inference-theme/assets/css/main.css — placeholder, full styles added in Phase 2 */
+
+/* Ghost custom font hook variables — required by gscan GS051 */
+:root {
+    --gh-font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --gh-font-body: "Source Serif 4", Georgia, serif;
+}
+
+/* Ghost Koenig card width classes — required by gscan */
+.kg-width-wide  { margin-left: calc(25% - 25vw); margin-right: calc(25% - 25vw); }
+.kg-width-full  { margin-left: calc(50% - 50vw);  margin-right: calc(50% - 50vw); }
