@@ -1,0 +1,26 @@
+{{!< default}}
+
+{{#page}}
+<main>
+    <section class="shell">
+        {{#if @page.show_title_and_feature_image}}
+        <div class="post-header">
+            <h1>{{title}}</h1>
+            {{#if custom_excerpt}}<p class="lede">{{custom_excerpt}}</p>{{/if}}
+            {{#if feature_image}}
+                <img src="{{img_url feature_image size="l"}}" alt="{{title}}">
+            {{/if}}
+        </div>
+        {{/if}}
+        <article class="post-body prose">
+            {{#unless access}}
+            <div class="gh-post-upgrade-cta">
+                <p>This content is for members only.</p>
+                <a href="{{@site.url}}#/portal/">Subscribe to read</a>
+            </div>
+            {{/unless}}
+            {{content}}
+        </article>
+    </section>
+</main>
+{{/page}}

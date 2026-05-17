@@ -1,0 +1,36 @@
+{{!< default}}
+
+<main>
+    <section class="shell archive-head">
+        <div class="mono" style="font-size:12px;color:var(--fg-mute);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px">
+            ── /archive/{{tag.slug}} ── {{pagination.total}} entries ──
+        </div>
+        <h1>{{tag.name}}</h1>
+        {{#if tag.description}}
+        <p class="lede">{{tag.description}}</p>
+        {{else}}
+        <p class="lede">All posts tagged {{tag.name}}.</p>
+        {{/if}}
+    </section>
+
+    <section class="shell">
+        <div class="archive-list">
+            {{#foreach posts}}
+            <a class="archive-row" href="{{url}}" data-topic="{{primary_tag.slug}}">
+                <span class="a-num">#{{@index}}</span>
+                <span class="a-date">{{date format="YYYY-MM-DD"}}</span>
+                <div class="a-title">
+                    {{title}}
+                    <small>{{excerpt words="20"}}</small>
+                </div>
+                {{#if primary_tag}}
+                <span class="a-tag t-{{primary_tag.slug}}">{{primary_tag.name}}</span>
+                {{/if}}
+                <span class="a-read">{{reading_time}}</span>
+            </a>
+            {{/foreach}}
+        </div>
+
+        {{pagination}}
+    </section>
+</main>

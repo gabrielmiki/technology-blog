@@ -1,0 +1,121 @@
+{{!< default}}
+
+<main>
+
+    {{! ── Hero ─────────────────────────────────────────────────────────── }}
+    <section class="hero">
+        <div class="shell hero-inner">
+            <div class="meta">
+                <span class="dot"></span>
+                <span>LIVE — PUBLISHING NOW</span>
+            </div>
+            <h1>
+                Rigorous thinking on <em>AI,</em><br>
+                software and infrastructure.
+            </h1>
+            <p class="lede">{{@site.description}}</p>
+
+            {{#get "authors" limit="1"}}
+            {{#foreach authors}}
+            <div class="author-card">
+                <div class="avatar">[{{name.[0]}}]</div>
+                <div>
+                    <div class="name">{{name}}</div>
+                    <div class="role">{{bio}}</div>
+                </div>
+                <div class="stats">
+                    <div>
+                        <b>{{count.posts}}</b>
+                        posts
+                    </div>
+                    <div>
+                        <b>2024</b>
+                        since
+                    </div>
+                    <div>
+                        <b>03</b>
+                        topics
+                    </div>
+                </div>
+            </div>
+            {{/foreach}}
+            {{/get}}
+        </div>
+    </section>
+
+    <section class="shell">
+
+        {{! ── Featured post ─────────────────────────────────────────────── }}
+        {{#get "posts" limit="1" filter="featured:true"}}
+        {{#if posts}}
+        <div class="section-heading">
+            <div class="title">featured</div>
+            <div class="extra">— {{#foreach posts}}{{date format="YYYY — MM — DD"}}{{/foreach}}</div>
+        </div>
+        {{#foreach posts}}
+        <div class="feature">
+            <a href="{{url}}" class="left">
+                <div class="topbits">
+                    {{#if primary_tag}}
+                    <span class="tag t-{{primary_tag.slug}}">{{primary_tag.name}}</span>
+                    {{/if}}
+                    <span>{{date format="YYYY — MM — DD"}}</span>
+                    <span>·</span>
+                    <span>{{reading_time}}</span>
+                </div>
+                <h2 class="ttl">{{title}}</h2>
+                <p class="dek">{{excerpt words="40"}}</p>
+                <div class="foot">
+                    <span>by {{primary_author.name}}</span>
+                    <span>·</span>
+                    <span>{{reading_time}}</span>
+                    <span style="margin-left:auto;color:var(--accent)">read more →</span>
+                </div>
+            </a>
+            <div class="right">
+                <h4>post details</h4>
+                <div class="kv">
+                    {{#if primary_tag}}<span class="k">topic</span><span class="v">{{primary_tag.name}}</span>{{/if}}
+                    <span class="k">posted</span><span class="v">{{date format="YYYY — MM — DD"}}</span>
+                    <span class="k">read</span><span class="v">{{reading_time}}</span>
+                    <span class="k">status</span><span class="v">published</span>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+
+        {{! ── Recent posts grid ─────────────────────────────────────────── }}
+        <div class="section-heading">
+            <div class="title">recent posts</div>
+            <div class="extra">
+                <a href="{{@site.url}}archive/" style="color:var(--fg-dim)">view archive →</a>
+            </div>
+        </div>
+
+        <div class="post-grid">
+            {{#foreach posts}}
+            {{#unless featured}}
+            <article class="post-card">
+                <div class="topbits">
+                    {{#if primary_tag}}
+                    <span class="tag t-{{primary_tag.slug}}">{{primary_tag.name}}</span>
+                    {{/if}}
+                    <span>{{date format="YYYY — MM — DD"}}</span>
+                </div>
+                <h3 class="ttl"><a href="{{url}}" style="color:inherit;text-decoration:none">{{title}}</a></h3>
+                <p class="dek">{{excerpt words="30"}}</p>
+                <div class="foot">
+                    <span>{{reading_time}}</span>
+                    <span style="margin-left:auto" class="arrow">→</span>
+                </div>
+            </article>
+            {{/unless}}
+            {{/foreach}}
+        </div>
+
+        {{pagination}}
+
+    </section>
+</main>
