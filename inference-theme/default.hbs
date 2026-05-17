@@ -18,17 +18,19 @@
             <span class="br">[&nbsp;]</span>
             <span>INFERENCE</span>
         </a>
+
         <nav class="nav" aria-label="primary">
-            <a href="{{@site.url}}" class="{{#is "home"}}active{{/is}}">
+            <a href="{{@site.url}}">
                 <span class="prompt">~&gt;</span><span>home</span>
             </a>
-            <a href="{{@site.url}}tag/ai-ml/" class="{{#is "tag"}}active{{/is}}">
+            <a href="{{@site.url}}archive/">
                 <span class="prompt">~&gt;</span><span>archive</span>
             </a>
             <a href="{{@site.url}}about/">
                 <span class="prompt">~&gt;</span><span>about</span>
             </a>
         </nav>
+
         <div class="tools">
             {{> "language-switcher"}}
             <button class="icon-btn theme-toggle" aria-label="toggle theme" title="toggle theme">
@@ -57,6 +59,7 @@
         <a href="{{@site.url}}tag/ai-ml/">AI / ML</a>
         <a href="{{@site.url}}tag/architecture/">Architecture</a>
         <a href="{{@site.url}}tag/infrastructure/">Infrastructure</a>
+        <a href="{{@site.url}}archive/">all entries</a>
     </div>
     <div>
         <h5>links</h5>
@@ -70,10 +73,10 @@
     </div>
 </footer>
 
-<div class="statusbar" role="contentinfo" id="js-statusbar">
+<div class="statusbar" role="contentinfo">
     <span class="seg"><span class="ok">●</span><span class="v">200 OK</span></span>
     <span class="seg"><span class="k">env</span><span class="v">production</span></span>
-    <span class="seg"><span class="k">page</span><span class="v" id="js-sb-page">/home</span></span>
+    <span class="seg"><span class="k">page</span><span class="v" id="js-sb-page">/</span></span>
     <span class="seg"><span class="k">lang</span><span class="v">{{@site.locale}}</span></span>
     <span class="seg"><span class="k">theme</span><span class="v" id="js-sb-theme">dark</span></span>
     <span class="seg right"><span class="k">utc</span><span class="v" id="js-sb-clock">--:--:--</span></span>

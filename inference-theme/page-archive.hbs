@@ -1,0 +1,50 @@
+{{!< default}}
+
+{{#page}}
+<main>
+    <section class="shell archive-head">
+        <div class="mono" style="font-size:12px;color:var(--fg-mute);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px">
+            ── /archive ──
+        </div>
+        <h1>Archive</h1>
+        <p class="lede">Every entry, in reverse chronological order.</p>
+    </section>
+
+    <section class="shell">
+        <div class="filters">
+            <span class="lbl">$ filter --topic</span>
+            <button class="pill on" data-filter="all">
+                <span>all</span>
+            </button>
+            <button class="pill t-ai" data-filter="ai-ml">
+                <span>AI / ML</span>
+            </button>
+            <button class="pill t-arch" data-filter="architecture">
+                <span>Architecture</span>
+            </button>
+            <button class="pill t-infra" data-filter="infrastructure">
+                <span>Infrastructure</span>
+            </button>
+        </div>
+
+        <div class="archive-list">
+            {{#get "posts" limit="all" order="published_at desc" include="tags,authors"}}
+            {{#foreach posts}}
+            <a class="archive-row" href="{{url}}" data-topic="{{primary_tag.slug}}">
+                <span class="a-num">#{{@index}}</span>
+                <span class="a-date">{{date format="YYYY-MM-DD"}}</span>
+                <div class="a-title">
+                    {{title}}
+                    <small>{{excerpt words="20"}}</small>
+                </div>
+                {{#if primary_tag}}
+                <span class="a-tag t-{{primary_tag.slug}}">{{primary_tag.name}}</span>
+                {{/if}}
+                <span class="a-read">{{reading_time}}</span>
+            </a>
+            {{/foreach}}
+            {{/get}}
+        </div>
+    </section>
+</main>
+{{/page}}
