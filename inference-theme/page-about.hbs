@@ -1,0 +1,305 @@
+{{!< default}}
+
+{{#page}}
+<main>
+
+    {{! ── Hero ── }}
+    <section class="shell about-hero">
+        <div class="left">
+            <div class="mono" style="font-size:12px;color:var(--fg-mute);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px">
+                {{#match @custom.site_language "en"}}
+                    ── /about ── v1.0 ── may 2026 ──
+                {{else}}
+                    ── /sobre ── v1.0 ── mai 2026 ──
+                {{/match}}
+            </div>
+            <h1 class="about-hero-title">
+                {{#match @custom.site_language "en"}}
+                    About Inference.
+                {{else}}
+                    Sobre o Inference.
+                {{/match}}
+            </h1>
+            <p class="lede">
+                {{#match @custom.site_language "en"}}
+                    Inference is the single-author publication of Beatriz Almeida — a documented record of thinking about AI systems, software architecture and the infrastructure they run on. It is not a news blog, a tutorial site, or an opinion column.
+                {{else}}
+                    Inference é a publicação de autora única de Beatriz Almeida — um registro documentado de pensamento sobre sistemas de IA, arquitetura de software e a infraestrutura sobre a qual rodam. Não é um blog de notícias, um site de tutoriais ou uma coluna de opinião.
+                {{/match}}
+            </p>
+        </div>
+        <div class="right">
+            <div style="font-family:var(--font-mono);font-size:12px;margin-bottom:8px;color:var(--fg-mute);letter-spacing:0.06em;text-transform:uppercase">
+                {{#match @custom.site_language "en"}}$ author.card{{else}}$ cartão.autor{{/match}}
+            </div>
+            <div style="border:1px solid var(--rule);padding:20px 24px;">
+                <div class="row">
+                    <span class="key">
+                        {{#match @custom.site_language "en"}}author{{else}}autora{{/match}}
+                    </span>
+                    <span class="val">Beatriz Almeida</span>
+                </div>
+                <div class="row">
+                    <span class="key">role</span>
+                    <span class="val">
+                        {{#match @custom.site_language "en"}}
+                            Software Architect / ML Practitioner
+                        {{else}}
+                            Arquiteta de Software / Praticante de ML
+                        {{/match}}
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="key">
+                        {{#match @custom.site_language "en"}}location{{else}}local{{/match}}
+                    </span>
+                    <span class="val">São Paulo, BR</span>
+                </div>
+                <div class="row">
+                    <span class="key">since</span>
+                    <span class="val">2024</span>
+                </div>
+                <div class="row">
+                    <span class="key">posts</span>
+                    <span class="val">
+                        {{#get "authors" limit="1"}}
+                            {{#foreach authors}}{{count.posts}}{{/foreach}}
+                        {{/get}}
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="key">cadence</span>
+                    <span class="val">
+                        {{#match @custom.site_language "en"}}weekly{{else}}semanal{{/match}}
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="key">licence</span>
+                    <span class="val">CC BY-NC 4.0</span>
+                </div>
+                <div class="row">
+                    <span class="key">sponsors</span>
+                    <span class="val">
+                        {{#match @custom.site_language "en"}}none{{else}}nenhum{{/match}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{! ── Body ── }}
+    <section class="shell about-body">
+
+        {{! ── Left aside: TOC + links ── }}
+        <aside>
+            <h5>
+                {{#match @custom.site_language "en"}}in this page{{else}}nesta página{{/match}}
+            </h5>
+            <ul class="toc-a">
+                <li>
+                    <a href="#mission">
+                        {{#match @custom.site_language "en"}}§ 01 — What this is{{else}}§ 01 — O que isto é{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#author">
+                        {{#match @custom.site_language "en"}}§ 02 — Who writes it{{else}}§ 02 — Quem escreve{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#topics">
+                        {{#match @custom.site_language "en"}}§ 03 — What I cover{{else}}§ 03 — O que cubro{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#voice">
+                        {{#match @custom.site_language "en"}}§ 04 — Editorial voice{{else}}§ 04 — Voz editorial{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#bilingual">
+                        {{#match @custom.site_language "en"}}§ 05 — Bilingual policy{{else}}§ 05 — Política bilíngue{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        {{#match @custom.site_language "en"}}§ 06 — Contact{{else}}§ 06 — Contato{{/match}}
+                    </a>
+                </li>
+            </ul>
+            <h5>
+                {{#match @custom.site_language "en"}}links{{else}}links{{/match}}
+            </h5>
+            <ul class="toc-a">
+                <li>
+                    <a href="{{@site.url}}/archive/">
+                        {{#match @custom.site_language "en"}}archive{{else}}arquivo{{/match}}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{@site.url}}/rss/">RSS / Atom</a>
+                </li>
+                <li>
+                    {{#match @custom.site_language "en"}}
+                        <a href="https://pt.getinference.com.br/about/">Português →</a>
+                    {{else}}
+                        <a href="https://en.getinference.com.br/about/">English →</a>
+                    {{/match}}
+                </li>
+            </ul>
+        </aside>
+
+        {{! ── Right: sections ── }}
+        <div class="sections">
+
+            {{! § 01 — Mission }}
+            <div id="mission" class="about-section">
+                <h2>
+                    <span class="num">§ 01</span>
+                    {{#match @custom.site_language "en"}}What this is{{else}}O que isto é{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>I started Inference because the writing I needed didn't exist. The technical articles I respected were either too academic — citation-rich but disconnected from production — or too commercial: tutorials engineered for organic traffic, with no admitted point of view.</p>
+                        <p>What I wanted to read was a practitioner thinking out loud, in public, with their evidence on the table. So I started writing it. Every post is a record of a real decision: a problem I encountered, the options I evaluated, the choice I made, and the reasoning behind it. Where I was wrong, I say so. Where I am still uncertain, I flag it.</p>
+                        <p>There are no listicles. There is no 'top ten'. There is one author. There is a point of view.</p>
+                    {{else}}
+                        <p>Comecei o Inference porque a escrita de que eu precisava não existia. Os artigos técnicos que eu respeitava eram acadêmicos demais — ricos em citações mas desconectados de produção — ou comerciais demais: tutoriais engenheirados para tráfego orgânico, sem ponto de vista assumido.</p>
+                        <p>O que eu queria ler era um praticante pensando em voz alta, em público, com as evidências na mesa. Então comecei a escrever. Cada post é o registro de uma decisão real: um problema encontrado, as opções avaliadas, a escolha feita e o raciocínio por trás dela. Onde estive errada, eu digo. Onde ainda há incerteza, eu sinalizo.</p>
+                        <p>Não há listicles. Não há 'top dez'. Há uma autora. Há um ponto de vista.</p>
+                    {{/match}}
+                </div>
+            </div>
+
+            {{! § 02 — Author }}
+            <div id="author" class="about-section">
+                <h2>
+                    <span class="num">§ 02</span>
+                    {{#match @custom.site_language "en"}}Who writes it{{else}}Quem escreve{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>I am a software architect and ML practitioner based in São Paulo. I have spent roughly a decade between research labs and production teams — long enough to have shipped systems I'm proud of, and long enough to have shipped systems I now regret.</p>
+                        <p>I hold a Master's in Computer Science from USP, where my thesis examined inference-time optimisation for transformer architectures. Since then I have worked across financial infrastructure, ML platform engineering and distributed-systems consultancy. I have been on call for production AI systems serving tens of millions of requests per day, and I have signed off on architectures I knew would fail in two years. Both experiences inform what I write.</p>
+                    {{else}}
+                        <p>Sou arquiteta de software e praticante de ML em São Paulo. Passei aproximadamente uma década entre laboratórios de pesquisa e times de produção — tempo suficiente para ter entregue sistemas dos quais me orgulho, e tempo suficiente para ter entregue sistemas dos quais hoje me arrependo.</p>
+                        <p>Tenho mestrado em Ciência da Computação pela USP, onde minha dissertação examinou otimização de inferência para arquiteturas transformer. Desde então trabalhei em infraestrutura financeira, engenharia de plataforma de ML e consultoria em sistemas distribuídos. Já fui on-call para sistemas de IA em produção atendendo dezenas de milhões de requisições por dia, e já assinei embaixo de arquiteturas que sabia que falhariam em dois anos. As duas experiências informam o que escrevo.</p>
+                    {{/match}}
+                </div>
+            </div>
+
+            {{! § 03 — Topics }}
+            <div id="topics" class="about-section">
+                <h2>
+                    <span class="num">§ 03</span>
+                    {{#match @custom.site_language "en"}}What I cover{{else}}O que cubro{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>Inference is organised around three topic areas. Every post carries a primary topic tag; the archive is filterable by topic.</p>
+                    {{else}}
+                        <p>Inference é organizado em torno de três áreas temáticas. Cada post carrega uma tag de tópico primário; o arquivo pode ser filtrado por tópico.</p>
+                    {{/match}}
+                    <div class="topic-grid">
+                        <div>
+                            <h4 class="t-ai-ml" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 10px">
+                                {{#match @custom.site_language "en"}}AI / ML{{else}}IA / ML{{/match}}
+                            </h4>
+                            <p>
+                                {{#match @custom.site_language "en"}}
+                                    Model architecture, training pipelines, inference optimisation, evaluation.
+                                {{else}}
+                                    Arquitetura de modelos, pipelines de treino, otimização de inferência, avaliação.
+                                {{/match}}
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="t-architecture" style="color:#f0883e;font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 10px">
+                                {{#match @custom.site_language "en"}}Architecture{{else}}Arquitetura{{/match}}
+                            </h4>
+                            <p>
+                                {{#match @custom.site_language "en"}}
+                                    System design, design patterns, API design, distributed systems.
+                                {{else}}
+                                    Design de sistemas, padrões, design de API, sistemas distribuídos.
+                                {{/match}}
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="t-infrastructure" style="color:#3fb950;font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 10px">
+                                {{#match @custom.site_language "en"}}Infrastructure{{else}}Infraestrutura{{/match}}
+                            </h4>
+                            <p>
+                                {{#match @custom.site_language "en"}}
+                                    GCP / AWS / Azure, containerisation, CI/CD, observability, cost engineering.
+                                {{else}}
+                                    GCP / AWS / Azure, contêineres, CI/CD, observabilidade, engenharia de custo.
+                                {{/match}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{! § 04 — Voice }}
+            <div id="voice" class="about-section">
+                <h2>
+                    <span class="num">§ 04</span>
+                    {{#match @custom.site_language "en"}}Editorial voice{{else}}Voz editorial{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>Posts are written in the first person, because intellectual ownership matters. When I write 'I argue', I am putting my name behind the argument. When I write 'I was wrong', I am putting my name behind the correction.</p>
+                        <p>The register is precise. Claims are backed by evidence — benchmarks, citations, or clearly labelled personal experience. Speculation is permitted but flagged as such. Hype is not permitted.</p>
+                    {{else}}
+                        <p>Os posts são escritos em primeira pessoa, porque autoria intelectual importa. Quando escrevo 'eu defendo', estou colocando meu nome atrás do argumento. Quando escrevo 'eu estava errada', estou colocando meu nome atrás da correção.</p>
+                        <p>O registro é preciso. Afirmações são sustentadas por evidência — benchmarks, citações ou experiência pessoal claramente identificada. Especulação é permitida, mas sinalizada como tal. Hype não é permitido.</p>
+                    {{/match}}
+                </div>
+            </div>
+
+            {{! § 05 — Bilingual }}
+            <div id="bilingual" class="about-section">
+                <h2>
+                    <span class="num">§ 05</span>
+                    {{#match @custom.site_language "en"}}Bilingual policy{{else}}Política bilíngue{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>Inference publishes in two languages: English at en.inference.dev, Brazilian Portuguese at pt.inference.dev. Each version is written natively from the same source material — neither is a translation of the other. The voice and structure are consistent across both. The examples and references occasionally differ where local context matters.</p>
+                    {{else}}
+                        <p>Inference publica em dois idiomas: inglês em en.inference.dev, português brasileiro em pt.inference.dev. Cada versão é escrita nativamente a partir do mesmo material-fonte — nenhuma é tradução da outra. A voz e a estrutura são consistentes entre ambas. Os exemplos e referências ocasionalmente diferem onde o contexto local importa.</p>
+                    {{/match}}
+                </div>
+            </div>
+
+            {{! § 06 — Contact }}
+            <div id="contact" class="about-section">
+                <h2>
+                    <span class="num">§ 06</span>
+                    {{#match @custom.site_language "en"}}Contact{{else}}Contato{{/match}}
+                </h2>
+                <div class="h-rule"></div>
+                <div class="body">
+                    {{#match @custom.site_language "en"}}
+                        <p>I read every email. I do not run paid sponsorships, sponsored posts, or affiliate links. If you want to flag an error, send a correction. If you want to suggest a topic, send a question I haven't answered yet.</p>
+                    {{else}}
+                        <p>Leio todos os emails. Não rodo patrocínios pagos, posts patrocinados ou links de afiliados. Se quiser sinalizar um erro, mande uma correção. Se quiser sugerir um tópico, mande uma pergunta que eu ainda não tenha respondido.</p>
+                    {{/match}}
+                    <p style="margin-top:24px">
+                        <span class="caret">&gt;</span>
+                        <a href="mailto:beatriz@inference.dev" style="font-family:var(--font-mono);font-size:14px;color:var(--accent)">beatriz@inference.dev</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>{{! /.sections }}
+    </section>
+
+</main>
+{{/page}}
